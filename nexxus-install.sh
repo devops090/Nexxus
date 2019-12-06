@@ -35,17 +35,17 @@ fi
 ## Downloading Nexus
 #yum install http://www6.atomicorp.com/channels/atomic/centos/7/x86_64/RPMS/html2text-1.3.2a-13.el7.art.x86_64.rpm -y &>/dev/null
 #yum install https://kojipkgs.fedoraproject.org/packages/python-html2text/2016.9.19/1.el7/noarch/python2-html2text-2016.9.19-1.el7.noarch.rpm -y &>/dev/null
-URL=$(curl -L -s https://help.sonatype.com/display/NXRM3/Download+Archives+-+Repository+Manager+3 | html2text | grep tar.gz | sed -e 's/>//g' -e 's/<//g' | grep ^http|head -1)
-NEXUSFILE=$(echo $URL | awk -F '/' '{print $NF}')
-NEXUSDIR=$(echo $NEXUSFILE|sed -e 's/-unix.tar.gz//')
-NEXUSFILE="/opt/$NEXUSFILE"
-wget $URL -O $NEXUSFILE &>/dev/null
-if [ $? -eq 0  ]; then 
-	success "NEXUS Downloaded Successfully"
-else
-	error "NEXUS Downloading Failure"
-	exit 1
-fi
+#URL=$(curl -L -s https://help.sonatype.com/display/NXRM3/Download+Archives+-+Repository+Manager+3 | html2text | grep tar.gz | sed -e 's/>//g' -e 's/<//g' | grep ^http|head -1)
+#NEXUSFILE=$(echo $URL | awk -F '/' '{print $NF}')
+#NEXUSDIR=$(echo $NEXUSFILE|sed -e 's/-unix.tar.gz//')
+#NEXUSFILE="/opt/$NEXUSFILE"
+#wget $URL -O $NEXUSFILE &>/dev/null
+#if [ $? -eq 0  ]; then 
+#	success "NEXUS Downloaded Successfully"
+#else
+#	error "NEXUS Downloading Failure"
+#	exit 1
+#fi
 
 ## Adding Nexus User
 id nexus &>/dev/null
